@@ -1,43 +1,35 @@
 import React, { useState, useEffect } from "react";
-import CategoryDetails from "../components/CategoryDetails";
+import { Link, useParams } from "react-router-dom";
 import dao from "../ajax/dao";
-import { Routes, Route, Link } from "react-router-dom";
-
 
 const CategoryDetailsView = () => {
-    const [details, setDetails] = useState([]);
+
+    const [category, setCategory] = useState([]);
+    const { categoryId } = useParams();
 
     useEffect(() => {
-        // ...do something ONLY when component did mount
-        // Notice: even if categories state change => not fired
-        async function refreshCategories() {
-            const data = await dao.fetchCategory();
-            setDetails(data);
+        async function getCategory() {
+            const data = await dao.fetchOneCategoryById(categoryId);
+            setCategory(data);
         }
-        refreshCategories();
+        getCategory();
     }, []);
 
-    useEffect(() => {
-        // ...do something when 1. component did mount
-        // 2. categories state changes
-    }, [details]);
-
-
     return (
+
         <div>
-        {details && details.length > 0 ?
-            details.map((item) =>
-                <CategoryDetails key={item.id}
-                    id={item.id}
-                    details={item}
-                   
-                     />
-
-            ) : "no categories yet"
-        }
-    </div>
+            <h1>Details of a Category</h1>
+            <dl>
+                <dt>id: {category.id}</dt>
+                <dd>name: {category.name}</dd>
+                <dd>budget: {category.budgetLimit}</dd>
+            </dl>
+            <nav>
+                <Link to="/category/all">Back to list</Link>
+            </nav>
+        </div>
         
-    
-    );}
+    );
+}
 
-    export default CategoryDetailsView;
+export default CategoryDetailsView;

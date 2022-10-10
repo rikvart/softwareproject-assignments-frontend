@@ -1,12 +1,13 @@
 import React from "react";
+import { Route } from "react-router-dom";
 
 const CategoryRow = ({index, category}) => {
 
-    const clickHandler = () => {
-        console.log("hello")
-    }
-
- return (<div onClick={clickHandler}>{category.id + ":" +category.name}</div>);
+ return (
+    <div>
+    {category.id + ":" +category.name}
+ </div>
+ );
 }
 
 export default CategoryRow;

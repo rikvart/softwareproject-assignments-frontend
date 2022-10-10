@@ -1,13 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-const CategoryDetails = ({index, details}) => {
+const CategoryDetails = ({index, category}) => {
 
-    const clickHandler = (id) => {
-        
-    }
 
-     return (<div onClick={clickHandler}> {details.id + ":" + details.name + ":" +details.details}</div>);
+     return (
+     
+     <div onClick={clickHandler}> {category.id + ":" + category.name + ":" +category.details}</div>);
 }
 
 export default CategoryDetails;
