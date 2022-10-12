@@ -16,9 +16,20 @@ const fetchOneCategoryById = async (categoryId) => {
     return category;
 };
 
+const deleteCategoryByCategoryId = async (categoryId) => {
+
+    const request = new Request(`${baseUrl}/category/${categoryId}`, {
+        method: 'DELETE'
+    });
+    await fetch(request);
+  
+
+}
+
 const dao = {
     fetchCategories,
     fetchOneCategoryById,
+    deleteCategoryByCategoryId
 };
 
 export default dao;

@@ -6,7 +6,7 @@ const CategoryDetails = ({index, category}) => {
 
      return (
      
-     <div onClick={clickHandler}> {category.id + ":" + category.name + ":" +category.details}</div>);
+     <div> {category.id + ":" + category.name + ":" +category.details}</div>);
 }
 
 export default CategoryDetails;

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { Button, useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import dao from "../ajax/dao";
+import CategoryDeleteView from "../views/CategoryDeleteView"
 
 const CategoryDetailsView = () => {
 
@@ -15,6 +16,10 @@ const CategoryDetailsView = () => {
         getCategory();
     }, []);
 
+    const DeleteRow = () => {
+        dao.deleteCategoryByCategoryId(category.id);
+    }
+
     return (
 
         <div>
@@ -24,9 +29,12 @@ const CategoryDetailsView = () => {
                 <dd>name: {category.name}</dd>
                 <dd>budget: {category.budgetLimit}</dd>
             </dl>
+             <CategoryDeleteView category={category} />
+            
             <nav>
                 <Link to="/category/all">Back to list</Link>
             </nav>
+           
         </div>
         
     );

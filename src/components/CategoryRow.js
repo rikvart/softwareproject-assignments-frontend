@@ -1,13 +1,17 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React, {Link, Button} from "react";
+const CategoryRow = ({category}) => {
 
-const CategoryRow = ({index, category}) => {
+return (
 
- return (
-    <div>
-    {category.id + ":" +category.name}
- </div>
- );
+<div>
+    {`${category.id} : ${category.name}`}  
+</div>
+
+
+);
+
+
 }
+
 
 export default CategoryRow;
