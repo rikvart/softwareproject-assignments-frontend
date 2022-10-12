@@ -3,6 +3,7 @@ import CategoryRow from "../components/CategoryRow";
 import CategoryListItem from "../components/CategoryListItem";
 import dao from "../ajax/dao";
 import { Routes, Route, Link } from "react-router-dom";
+import AddRandomCategoryView from "../views/AddRandomCategoryView";
 
 
 const CategoryListView = () => {
@@ -40,6 +41,11 @@ const CategoryListView = () => {
 
                     ) : "no categories yet"
                 }
+            </div>
+            <div>
+                <Link to="/category/create">
+                    Add a random category
+                </Link>
             </div>
         </>
     );}
