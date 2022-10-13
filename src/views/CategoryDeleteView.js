@@ -21,8 +21,8 @@ const CategoryDeleteView = () => {
     }
 
     return (
-        <div onClick={DeleteRow}>
-            aaaa
+        <div type="link" onClick={DeleteRow}>
+            Press this to delete
         </div>
     );
 }
